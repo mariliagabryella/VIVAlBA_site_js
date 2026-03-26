@@ -13,14 +13,19 @@ datasource db {
 }
 
 // Exemplo básico de um evento no schema.prisma
+
 model Event {
-  id          Int      @id @default(autoincrement())
-  title       String   // Nome do evento
-  description String?  // Descrição (opcional, devido ao '?')
-  date        DateTime // Data do evento
-  location    String   // Local
-  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  titulo      String
+  descricao   String
+  data        DateTime
+  local       String
+  categoria   String   // Ex: "Música", "Cultura", "Workshop"
+  preco       Float?   // null ou 0 significa Grátis
+  imagemUrl   String?  // URL da imagem (upload)
+  criadoEm    DateTime @default(now())
 }
+
 
 
 
